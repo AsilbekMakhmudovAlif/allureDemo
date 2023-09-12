@@ -9,7 +9,7 @@ node {
             stage("Run tests") {
                 try {
                         getProject("$base_git_url", "$task_branch")
-                        labelledShell(label: "Run simple tests", script: "mvn test")
+                        labelledShell(label: "Run simple tests", script: "./mvnw test")
                     } finally {
                         echo "Some failed tests"
                     }
