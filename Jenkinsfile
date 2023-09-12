@@ -9,9 +9,8 @@ node {
             stage("Run tests") {
                 try {
                         getProject("$base_git_url", "$task_branch")
-                        labelledShell(label: "Run simple tests", script: "
-                        mvn -N wrapper:wrapper
-                        ./mvnw test")
+                        labelledShell(label: "Install maven wrapper", script: "mvn -N wrapper:wrapper")
+                        labelledShell(label: "Run simple tests", script: "./mvnw test")
                     } finally {
                         echo "Some failed tests"
                     }
